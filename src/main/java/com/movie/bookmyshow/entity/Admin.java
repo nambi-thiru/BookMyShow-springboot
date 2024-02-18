@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Admin {
 	private String adminMail;
 	private String adminPwd;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Theatre> theatre;
 
 }
