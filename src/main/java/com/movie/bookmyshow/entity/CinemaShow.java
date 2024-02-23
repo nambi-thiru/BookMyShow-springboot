@@ -1,7 +1,5 @@
 package com.movie.bookmyshow.entity;
 
-import java.time.LocalDate;
-
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.CascadeType;
@@ -17,15 +15,18 @@ import lombok.Setter;
 @Setter
 @Entity
 @Component
-public class Bookings {
+public class CinemaShow {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int bookingId;
-	private ClassType classType;
-	private double bookingAmount;
-	private LocalDate bookingDate;
+	private int showId;
+	
+	private String showName;
+	private String showTiming;
+	
+	private int screenId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private CinemaShow show;
+	private Movie movie;
 
 }
